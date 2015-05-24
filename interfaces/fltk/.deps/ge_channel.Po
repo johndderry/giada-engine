@@ -1,0 +1,693 @@
+ge_channel.o: ge_channel.cpp /usr/include/stdc-predef.h engine.h \
+ ../../engine/config.h \
+ /usr/lib/gcc/i486-slackware-linux/4.8.2/include-fixed/limits.h \
+ /usr/lib/gcc/i486-slackware-linux/4.8.2/include-fixed/syslimits.h \
+ /usr/include/limits.h /usr/include/features.h /usr/include/sys/cdefs.h \
+ /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h \
+ /usr/include/gnu/stubs-32.h /usr/include/bits/posix1_lim.h \
+ /usr/include/bits/local_lim.h /usr/include/linux/limits.h \
+ /usr/include/bits/posix2_lim.h /usr/include/bits/xopen_lim.h \
+ /usr/include/bits/stdio_lim.h \
+ /usr/lib/gcc/i486-slackware-linux/4.8.2/include/stdint.h \
+ /usr/include/stdint.h /usr/include/bits/wchar.h /usr/include/stdio.h \
+ /usr/lib/gcc/i486-slackware-linux/4.8.2/include/stddef.h \
+ /usr/include/bits/types.h /usr/include/bits/typesizes.h \
+ /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h \
+ /usr/lib/gcc/i486-slackware-linux/4.8.2/include/stdarg.h \
+ /usr/include/bits/sys_errlist.h /usr/include/bits/stdio.h \
+ /usr/include/c++/4.8.2/string \
+ /usr/include/c++/4.8.2/i486-slackware-linux/bits/c++config.h \
+ /usr/include/c++/4.8.2/i486-slackware-linux/bits/os_defines.h \
+ /usr/include/c++/4.8.2/i486-slackware-linux/bits/cpu_defines.h \
+ /usr/include/c++/4.8.2/bits/stringfwd.h \
+ /usr/include/c++/4.8.2/bits/memoryfwd.h \
+ /usr/include/c++/4.8.2/bits/char_traits.h \
+ /usr/include/c++/4.8.2/bits/stl_algobase.h \
+ /usr/include/c++/4.8.2/bits/functexcept.h \
+ /usr/include/c++/4.8.2/bits/exception_defines.h \
+ /usr/include/c++/4.8.2/bits/cpp_type_traits.h \
+ /usr/include/c++/4.8.2/ext/type_traits.h \
+ /usr/include/c++/4.8.2/ext/numeric_traits.h \
+ /usr/include/c++/4.8.2/bits/stl_pair.h \
+ /usr/include/c++/4.8.2/bits/move.h \
+ /usr/include/c++/4.8.2/bits/concept_check.h \
+ /usr/include/c++/4.8.2/bits/stl_iterator_base_types.h \
+ /usr/include/c++/4.8.2/bits/stl_iterator_base_funcs.h \
+ /usr/include/c++/4.8.2/debug/debug.h \
+ /usr/include/c++/4.8.2/bits/stl_iterator.h \
+ /usr/include/c++/4.8.2/bits/postypes.h /usr/include/c++/4.8.2/cwchar \
+ /usr/include/xlocale.h /usr/include/c++/4.8.2/bits/allocator.h \
+ /usr/include/c++/4.8.2/i486-slackware-linux/bits/c++allocator.h \
+ /usr/include/c++/4.8.2/ext/new_allocator.h /usr/include/c++/4.8.2/new \
+ /usr/include/c++/4.8.2/exception \
+ /usr/include/c++/4.8.2/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/4.8.2/bits/localefwd.h \
+ /usr/include/c++/4.8.2/i486-slackware-linux/bits/c++locale.h \
+ /usr/include/c++/4.8.2/clocale /usr/include/locale.h \
+ /usr/include/bits/locale.h /usr/include/c++/4.8.2/iosfwd \
+ /usr/include/c++/4.8.2/cctype /usr/include/ctype.h /usr/include/endian.h \
+ /usr/include/bits/endian.h /usr/include/bits/byteswap.h \
+ /usr/include/bits/byteswap-16.h \
+ /usr/include/c++/4.8.2/bits/ostream_insert.h \
+ /usr/include/c++/4.8.2/bits/cxxabi_forced.h \
+ /usr/include/c++/4.8.2/bits/stl_function.h \
+ /usr/include/c++/4.8.2/backward/binders.h \
+ /usr/include/c++/4.8.2/bits/range_access.h \
+ /usr/include/c++/4.8.2/bits/basic_string.h \
+ /usr/include/c++/4.8.2/ext/atomicity.h \
+ /usr/include/c++/4.8.2/i486-slackware-linux/bits/gthr.h \
+ /usr/include/c++/4.8.2/i486-slackware-linux/bits/gthr-default.h \
+ /usr/include/pthread.h /usr/include/sched.h /usr/include/time.h \
+ /usr/include/bits/sched.h /usr/include/bits/time.h \
+ /usr/include/bits/timex.h /usr/include/bits/pthreadtypes.h \
+ /usr/include/bits/setjmp.h \
+ /usr/include/c++/4.8.2/i486-slackware-linux/bits/atomic_word.h \
+ /usr/include/c++/4.8.2/bits/basic_string.tcc /usr/include/string.h \
+ ../../engine/utility.h ../../engine/patch.h ../../engine/wave.h \
+ /usr/include/samplerate.h /usr/include/sndfile.h \
+ /usr/include/sys/types.h /usr/include/sys/select.h \
+ /usr/include/bits/select.h /usr/include/bits/sigset.h \
+ /usr/include/sys/sysmacros.h ../../engine/channel.h \
+ ../../engine/midichannel.h ../../engine/samplechannel.h \
+ /usr/include/math.h /usr/include/bits/huge_val.h \
+ /usr/include/bits/huge_valf.h /usr/include/bits/huge_vall.h \
+ /usr/include/bits/inf.h /usr/include/bits/nan.h \
+ /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h \
+ /usr/include/bits/mathinline.h ../../engine/interface.h \
+ ../../engine/control.h ../../engine/recorder.h /usr/include/stdlib.h \
+ /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h \
+ /usr/include/alloca.h /usr/include/bits/stdlib-float.h \
+ ../../engine/../midifile/include/MidiFile.h \
+ ../../engine/../midifile/include/MidiEventList.h \
+ ../../engine/../midifile/include/MidiEvent.h \
+ ../../engine/../midifile/include/MidiMessage.h \
+ /usr/include/c++/4.8.2/vector \
+ /usr/include/c++/4.8.2/bits/stl_construct.h \
+ /usr/include/c++/4.8.2/ext/alloc_traits.h \
+ /usr/include/c++/4.8.2/bits/stl_uninitialized.h \
+ /usr/include/c++/4.8.2/bits/stl_vector.h \
+ /usr/include/c++/4.8.2/bits/stl_bvector.h \
+ /usr/include/c++/4.8.2/bits/vector.tcc /usr/include/c++/4.8.2/istream \
+ /usr/include/c++/4.8.2/ios /usr/include/c++/4.8.2/bits/ios_base.h \
+ /usr/include/c++/4.8.2/bits/locale_classes.h \
+ /usr/include/c++/4.8.2/bits/locale_classes.tcc \
+ /usr/include/c++/4.8.2/streambuf \
+ /usr/include/c++/4.8.2/bits/streambuf.tcc \
+ /usr/include/c++/4.8.2/bits/basic_ios.h \
+ /usr/include/c++/4.8.2/bits/locale_facets.h \
+ /usr/include/c++/4.8.2/cwctype /usr/include/wctype.h \
+ /usr/include/c++/4.8.2/i486-slackware-linux/bits/ctype_base.h \
+ /usr/include/c++/4.8.2/bits/streambuf_iterator.h \
+ /usr/include/c++/4.8.2/i486-slackware-linux/bits/ctype_inline.h \
+ /usr/include/c++/4.8.2/bits/locale_facets.tcc \
+ /usr/include/c++/4.8.2/bits/basic_ios.tcc /usr/include/c++/4.8.2/ostream \
+ /usr/include/c++/4.8.2/bits/ostream.tcc \
+ /usr/include/c++/4.8.2/bits/istream.tcc /usr/include/c++/4.8.2/fstream \
+ /usr/include/c++/4.8.2/bits/codecvt.h /usr/include/c++/4.8.2/cstdio \
+ /usr/include/c++/4.8.2/i486-slackware-linux/bits/basic_file.h \
+ /usr/include/c++/4.8.2/i486-slackware-linux/bits/c++io.h \
+ /usr/include/c++/4.8.2/bits/fstream.tcc ../../engine/mixer.h \
+ ../../engine/../rtaudio/RtAudio.h /usr/include/jack/jack.h \
+ /usr/include/jack/types.h /usr/include/inttypes.h \
+ /usr/include/uuid/uuid.h /usr/include/sys/time.h \
+ /usr/include/jack/transport.h /usr/include/jack/weakmacros.h \
+ /usr/include/c++/4.8.2/iostream /usr/include/c++/4.8.2/sstream \
+ /usr/include/c++/4.8.2/bits/sstream.tcc ../../engine/kernelmidi.h \
+ ../../engine/../rtmidi/RtMidi.h ../../engine/kernelaudio.h \
+ /usr/include/jack/intclient.h ../../engine/init.h fltk.h ge_window.h \
+ /usr/include/FL/Fl_Double_Window.H /usr/include/FL/Fl_Window.H \
+ /usr/include/FL/Fl_Group.H /usr/include/FL/Fl_Widget.H \
+ /usr/include/FL/Enumerations.H /usr/include/FL/Fl_Export.H \
+ /usr/include/FL/fl_types.h ge_mixed.h /usr/include/dirent.h \
+ /usr/include/bits/dirent.h /usr/include/FL/Fl.H \
+ /usr/include/FL/fl_utf8.h /usr/include/sys/stat.h \
+ /usr/include/bits/stat.h /usr/include/FL/Xutf8.h /usr/include/X11/X.h \
+ /usr/include/X11/Xlib.h /usr/include/X11/Xfuncproto.h \
+ /usr/include/X11/Xosdefs.h /usr/include/X11/Xlocale.h \
+ /usr/include/X11/Xutil.h /usr/include/X11/keysym.h \
+ /usr/include/X11/keysymdef.h /usr/include/FL/Fl_Menu_Window.H \
+ /usr/include/FL/Fl_Single_Window.H /usr/include/FL/Fl_Button.H \
+ /usr/include/FL/Fl_Repeat_Button.H /usr/include/FL/Fl.H \
+ /usr/include/FL/Fl_Button.H /usr/include/FL/Fl_Check_Button.H \
+ /usr/include/FL/Fl_Light_Button.H /usr/include/FL/Fl_Box.H \
+ /usr/include/FL/fl_draw.H /usr/include/FL/x.H /usr/include/X11/Xatom.h \
+ /usr/include/FL/Enumerations.H /usr/include/FL/Fl_Window.H \
+ /usr/include/FL/Fl_Device.H /usr/include/FL/Fl_Plugin.H \
+ /usr/include/FL/Fl_Preferences.H /usr/include/FL/Fl_Image.H \
+ /usr/include/FL/Fl_Bitmap.H /usr/include/FL/Fl_Image.H \
+ /usr/include/FL/Fl_Pixmap.H /usr/include/FL/Fl_RGB_Image.H \
+ /usr/include/FL/Fl_Dial.H /usr/include/FL/Fl_Valuator.H \
+ /usr/include/FL/Fl_Menu_Button.H /usr/include/FL/Fl_Menu_.H \
+ /usr/include/FL/Fl_Menu_Item.H /usr/include/FL/Fl_Hold_Browser.H \
+ /usr/include/FL/Fl_Browser.H /usr/include/FL/Fl_Browser_.H \
+ /usr/include/FL/Fl_Scrollbar.H /usr/include/FL/Fl_Slider.H \
+ /usr/include/FL/Fl_Radio_Button.H /usr/include/FL/Fl_Progress.H \
+ /usr/include/FL/Fl_Input.H /usr/include/FL/Fl_Input_.H \
+ /usr/include/FL/Fl_Int_Input.H /usr/include/FL/Fl_Input.H \
+ /usr/include/FL/Fl_Choice.H /usr/include/FL/Fl_Scroll.H \
+ /usr/include/FL/Fl_Value_Input.H ge_channel.h ge_actionWidget.h \
+ /usr/include/FL/Fl_Group.H ge_actionChannel.h ge_muteChannel.h \
+ /usr/include/FL/Fl_Widget.H ge_envelopeChannel.h ge_pianoRoll.h \
+ ge_browser.h ge_waveform.h gd_browser.h gd_keyGrabber.h gd_midiGrabber.h \
+ gd_midiOutputSetup.h gd_actionEditor.h gd_editor.h gd_beatsInput.h \
+ gd_bpmInput.h gd_warnings.h gd_config.h /usr/include/FL/Fl_Tabs.H \
+ gd_devInfo.h gg_waveTools.h gg_keyboard.h gg_launcher.h gd_mainWindow.h \
+ gui_utils.h /usr/include/X11/xpm.h graphics.h
+
+/usr/include/stdc-predef.h:
+
+engine.h:
+
+../../engine/config.h:
+
+/usr/lib/gcc/i486-slackware-linux/4.8.2/include-fixed/limits.h:
+
+/usr/lib/gcc/i486-slackware-linux/4.8.2/include-fixed/syslimits.h:
+
+/usr/include/limits.h:
+
+/usr/include/features.h:
+
+/usr/include/sys/cdefs.h:
+
+/usr/include/bits/wordsize.h:
+
+/usr/include/gnu/stubs.h:
+
+/usr/include/gnu/stubs-32.h:
+
+/usr/include/bits/posix1_lim.h:
+
+/usr/include/bits/local_lim.h:
+
+/usr/include/linux/limits.h:
+
+/usr/include/bits/posix2_lim.h:
+
+/usr/include/bits/xopen_lim.h:
+
+/usr/include/bits/stdio_lim.h:
+
+/usr/lib/gcc/i486-slackware-linux/4.8.2/include/stdint.h:
+
+/usr/include/stdint.h:
+
+/usr/include/bits/wchar.h:
+
+/usr/include/stdio.h:
+
+/usr/lib/gcc/i486-slackware-linux/4.8.2/include/stddef.h:
+
+/usr/include/bits/types.h:
+
+/usr/include/bits/typesizes.h:
+
+/usr/include/libio.h:
+
+/usr/include/_G_config.h:
+
+/usr/include/wchar.h:
+
+/usr/lib/gcc/i486-slackware-linux/4.8.2/include/stdarg.h:
+
+/usr/include/bits/sys_errlist.h:
+
+/usr/include/bits/stdio.h:
+
+/usr/include/c++/4.8.2/string:
+
+/usr/include/c++/4.8.2/i486-slackware-linux/bits/c++config.h:
+
+/usr/include/c++/4.8.2/i486-slackware-linux/bits/os_defines.h:
+
+/usr/include/c++/4.8.2/i486-slackware-linux/bits/cpu_defines.h:
+
+/usr/include/c++/4.8.2/bits/stringfwd.h:
+
+/usr/include/c++/4.8.2/bits/memoryfwd.h:
+
+/usr/include/c++/4.8.2/bits/char_traits.h:
+
+/usr/include/c++/4.8.2/bits/stl_algobase.h:
+
+/usr/include/c++/4.8.2/bits/functexcept.h:
+
+/usr/include/c++/4.8.2/bits/exception_defines.h:
+
+/usr/include/c++/4.8.2/bits/cpp_type_traits.h:
+
+/usr/include/c++/4.8.2/ext/type_traits.h:
+
+/usr/include/c++/4.8.2/ext/numeric_traits.h:
+
+/usr/include/c++/4.8.2/bits/stl_pair.h:
+
+/usr/include/c++/4.8.2/bits/move.h:
+
+/usr/include/c++/4.8.2/bits/concept_check.h:
+
+/usr/include/c++/4.8.2/bits/stl_iterator_base_types.h:
+
+/usr/include/c++/4.8.2/bits/stl_iterator_base_funcs.h:
+
+/usr/include/c++/4.8.2/debug/debug.h:
+
+/usr/include/c++/4.8.2/bits/stl_iterator.h:
+
+/usr/include/c++/4.8.2/bits/postypes.h:
+
+/usr/include/c++/4.8.2/cwchar:
+
+/usr/include/xlocale.h:
+
+/usr/include/c++/4.8.2/bits/allocator.h:
+
+/usr/include/c++/4.8.2/i486-slackware-linux/bits/c++allocator.h:
+
+/usr/include/c++/4.8.2/ext/new_allocator.h:
+
+/usr/include/c++/4.8.2/new:
+
+/usr/include/c++/4.8.2/exception:
+
+/usr/include/c++/4.8.2/bits/atomic_lockfree_defines.h:
+
+/usr/include/c++/4.8.2/bits/localefwd.h:
+
+/usr/include/c++/4.8.2/i486-slackware-linux/bits/c++locale.h:
+
+/usr/include/c++/4.8.2/clocale:
+
+/usr/include/locale.h:
+
+/usr/include/bits/locale.h:
+
+/usr/include/c++/4.8.2/iosfwd:
+
+/usr/include/c++/4.8.2/cctype:
+
+/usr/include/ctype.h:
+
+/usr/include/endian.h:
+
+/usr/include/bits/endian.h:
+
+/usr/include/bits/byteswap.h:
+
+/usr/include/bits/byteswap-16.h:
+
+/usr/include/c++/4.8.2/bits/ostream_insert.h:
+
+/usr/include/c++/4.8.2/bits/cxxabi_forced.h:
+
+/usr/include/c++/4.8.2/bits/stl_function.h:
+
+/usr/include/c++/4.8.2/backward/binders.h:
+
+/usr/include/c++/4.8.2/bits/range_access.h:
+
+/usr/include/c++/4.8.2/bits/basic_string.h:
+
+/usr/include/c++/4.8.2/ext/atomicity.h:
+
+/usr/include/c++/4.8.2/i486-slackware-linux/bits/gthr.h:
+
+/usr/include/c++/4.8.2/i486-slackware-linux/bits/gthr-default.h:
+
+/usr/include/pthread.h:
+
+/usr/include/sched.h:
+
+/usr/include/time.h:
+
+/usr/include/bits/sched.h:
+
+/usr/include/bits/time.h:
+
+/usr/include/bits/timex.h:
+
+/usr/include/bits/pthreadtypes.h:
+
+/usr/include/bits/setjmp.h:
+
+/usr/include/c++/4.8.2/i486-slackware-linux/bits/atomic_word.h:
+
+/usr/include/c++/4.8.2/bits/basic_string.tcc:
+
+/usr/include/string.h:
+
+../../engine/utility.h:
+
+../../engine/patch.h:
+
+../../engine/wave.h:
+
+/usr/include/samplerate.h:
+
+/usr/include/sndfile.h:
+
+/usr/include/sys/types.h:
+
+/usr/include/sys/select.h:
+
+/usr/include/bits/select.h:
+
+/usr/include/bits/sigset.h:
+
+/usr/include/sys/sysmacros.h:
+
+../../engine/channel.h:
+
+../../engine/midichannel.h:
+
+../../engine/samplechannel.h:
+
+/usr/include/math.h:
+
+/usr/include/bits/huge_val.h:
+
+/usr/include/bits/huge_valf.h:
+
+/usr/include/bits/huge_vall.h:
+
+/usr/include/bits/inf.h:
+
+/usr/include/bits/nan.h:
+
+/usr/include/bits/mathdef.h:
+
+/usr/include/bits/mathcalls.h:
+
+/usr/include/bits/mathinline.h:
+
+../../engine/interface.h:
+
+../../engine/control.h:
+
+../../engine/recorder.h:
+
+/usr/include/stdlib.h:
+
+/usr/include/bits/waitflags.h:
+
+/usr/include/bits/waitstatus.h:
+
+/usr/include/alloca.h:
+
+/usr/include/bits/stdlib-float.h:
+
+../../engine/../midifile/include/MidiFile.h:
+
+../../engine/../midifile/include/MidiEventList.h:
+
+../../engine/../midifile/include/MidiEvent.h:
+
+../../engine/../midifile/include/MidiMessage.h:
+
+/usr/include/c++/4.8.2/vector:
+
+/usr/include/c++/4.8.2/bits/stl_construct.h:
+
+/usr/include/c++/4.8.2/ext/alloc_traits.h:
+
+/usr/include/c++/4.8.2/bits/stl_uninitialized.h:
+
+/usr/include/c++/4.8.2/bits/stl_vector.h:
+
+/usr/include/c++/4.8.2/bits/stl_bvector.h:
+
+/usr/include/c++/4.8.2/bits/vector.tcc:
+
+/usr/include/c++/4.8.2/istream:
+
+/usr/include/c++/4.8.2/ios:
+
+/usr/include/c++/4.8.2/bits/ios_base.h:
+
+/usr/include/c++/4.8.2/bits/locale_classes.h:
+
+/usr/include/c++/4.8.2/bits/locale_classes.tcc:
+
+/usr/include/c++/4.8.2/streambuf:
+
+/usr/include/c++/4.8.2/bits/streambuf.tcc:
+
+/usr/include/c++/4.8.2/bits/basic_ios.h:
+
+/usr/include/c++/4.8.2/bits/locale_facets.h:
+
+/usr/include/c++/4.8.2/cwctype:
+
+/usr/include/wctype.h:
+
+/usr/include/c++/4.8.2/i486-slackware-linux/bits/ctype_base.h:
+
+/usr/include/c++/4.8.2/bits/streambuf_iterator.h:
+
+/usr/include/c++/4.8.2/i486-slackware-linux/bits/ctype_inline.h:
+
+/usr/include/c++/4.8.2/bits/locale_facets.tcc:
+
+/usr/include/c++/4.8.2/bits/basic_ios.tcc:
+
+/usr/include/c++/4.8.2/ostream:
+
+/usr/include/c++/4.8.2/bits/ostream.tcc:
+
+/usr/include/c++/4.8.2/bits/istream.tcc:
+
+/usr/include/c++/4.8.2/fstream:
+
+/usr/include/c++/4.8.2/bits/codecvt.h:
+
+/usr/include/c++/4.8.2/cstdio:
+
+/usr/include/c++/4.8.2/i486-slackware-linux/bits/basic_file.h:
+
+/usr/include/c++/4.8.2/i486-slackware-linux/bits/c++io.h:
+
+/usr/include/c++/4.8.2/bits/fstream.tcc:
+
+../../engine/mixer.h:
+
+../../engine/../rtaudio/RtAudio.h:
+
+/usr/include/jack/jack.h:
+
+/usr/include/jack/types.h:
+
+/usr/include/inttypes.h:
+
+/usr/include/uuid/uuid.h:
+
+/usr/include/sys/time.h:
+
+/usr/include/jack/transport.h:
+
+/usr/include/jack/weakmacros.h:
+
+/usr/include/c++/4.8.2/iostream:
+
+/usr/include/c++/4.8.2/sstream:
+
+/usr/include/c++/4.8.2/bits/sstream.tcc:
+
+../../engine/kernelmidi.h:
+
+../../engine/../rtmidi/RtMidi.h:
+
+../../engine/kernelaudio.h:
+
+/usr/include/jack/intclient.h:
+
+../../engine/init.h:
+
+fltk.h:
+
+ge_window.h:
+
+/usr/include/FL/Fl_Double_Window.H:
+
+/usr/include/FL/Fl_Window.H:
+
+/usr/include/FL/Fl_Group.H:
+
+/usr/include/FL/Fl_Widget.H:
+
+/usr/include/FL/Enumerations.H:
+
+/usr/include/FL/Fl_Export.H:
+
+/usr/include/FL/fl_types.h:
+
+ge_mixed.h:
+
+/usr/include/dirent.h:
+
+/usr/include/bits/dirent.h:
+
+/usr/include/FL/Fl.H:
+
+/usr/include/FL/fl_utf8.h:
+
+/usr/include/sys/stat.h:
+
+/usr/include/bits/stat.h:
+
+/usr/include/FL/Xutf8.h:
+
+/usr/include/X11/X.h:
+
+/usr/include/X11/Xlib.h:
+
+/usr/include/X11/Xfuncproto.h:
+
+/usr/include/X11/Xosdefs.h:
+
+/usr/include/X11/Xlocale.h:
+
+/usr/include/X11/Xutil.h:
+
+/usr/include/X11/keysym.h:
+
+/usr/include/X11/keysymdef.h:
+
+/usr/include/FL/Fl_Menu_Window.H:
+
+/usr/include/FL/Fl_Single_Window.H:
+
+/usr/include/FL/Fl_Button.H:
+
+/usr/include/FL/Fl_Repeat_Button.H:
+
+/usr/include/FL/Fl.H:
+
+/usr/include/FL/Fl_Button.H:
+
+/usr/include/FL/Fl_Check_Button.H:
+
+/usr/include/FL/Fl_Light_Button.H:
+
+/usr/include/FL/Fl_Box.H:
+
+/usr/include/FL/fl_draw.H:
+
+/usr/include/FL/x.H:
+
+/usr/include/X11/Xatom.h:
+
+/usr/include/FL/Enumerations.H:
+
+/usr/include/FL/Fl_Window.H:
+
+/usr/include/FL/Fl_Device.H:
+
+/usr/include/FL/Fl_Plugin.H:
+
+/usr/include/FL/Fl_Preferences.H:
+
+/usr/include/FL/Fl_Image.H:
+
+/usr/include/FL/Fl_Bitmap.H:
+
+/usr/include/FL/Fl_Image.H:
+
+/usr/include/FL/Fl_Pixmap.H:
+
+/usr/include/FL/Fl_RGB_Image.H:
+
+/usr/include/FL/Fl_Dial.H:
+
+/usr/include/FL/Fl_Valuator.H:
+
+/usr/include/FL/Fl_Menu_Button.H:
+
+/usr/include/FL/Fl_Menu_.H:
+
+/usr/include/FL/Fl_Menu_Item.H:
+
+/usr/include/FL/Fl_Hold_Browser.H:
+
+/usr/include/FL/Fl_Browser.H:
+
+/usr/include/FL/Fl_Browser_.H:
+
+/usr/include/FL/Fl_Scrollbar.H:
+
+/usr/include/FL/Fl_Slider.H:
+
+/usr/include/FL/Fl_Radio_Button.H:
+
+/usr/include/FL/Fl_Progress.H:
+
+/usr/include/FL/Fl_Input.H:
+
+/usr/include/FL/Fl_Input_.H:
+
+/usr/include/FL/Fl_Int_Input.H:
+
+/usr/include/FL/Fl_Input.H:
+
+/usr/include/FL/Fl_Choice.H:
+
+/usr/include/FL/Fl_Scroll.H:
+
+/usr/include/FL/Fl_Value_Input.H:
+
+ge_channel.h:
+
+ge_actionWidget.h:
+
+/usr/include/FL/Fl_Group.H:
+
+ge_actionChannel.h:
+
+ge_muteChannel.h:
+
+/usr/include/FL/Fl_Widget.H:
+
+ge_envelopeChannel.h:
+
+ge_pianoRoll.h:
+
+ge_browser.h:
+
+ge_waveform.h:
+
+gd_browser.h:
+
+gd_keyGrabber.h:
+
+gd_midiGrabber.h:
+
+gd_midiOutputSetup.h:
+
+gd_actionEditor.h:
+
+gd_editor.h:
+
+gd_beatsInput.h:
+
+gd_bpmInput.h:
+
+gd_warnings.h:
+
+gd_config.h:
+
+/usr/include/FL/Fl_Tabs.H:
+
+gd_devInfo.h:
+
+gg_waveTools.h:
+
+gg_keyboard.h:
+
+gg_launcher.h:
+
+gd_mainWindow.h:
+
+gui_utils.h:
+
+/usr/include/X11/xpm.h:
+
+graphics.h:

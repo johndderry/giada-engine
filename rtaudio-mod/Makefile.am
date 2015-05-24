@@ -1,0 +1,3 @@
+INCLUDES = 
+METASOURCES = AUTO
+lib_LIBRARIES = librtaudio.a

@@ -1,0 +1,5 @@
+graphics.o: graphics.cpp /usr/include/stdc-predef.h graphics.h
+
+/usr/include/stdc-predef.h:
+
+graphics.h:
