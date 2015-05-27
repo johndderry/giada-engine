@@ -1,0 +1,13 @@
+KNOWN ISSUES
+
+-- Initial Release May 24, 2015
+
+* updating of the midi track name, after events exist, doesn't occur on the screen.
+You will see the correct name assigned when you go to export the file.
+
+* exporting more than one midifile will cause a crash in the midifile library.
+
+* autogen.sh complains about missing files, suggests foreign option.
+
+* configure.ac in rtaudio has been hack to only use --with-alsa and --with-linux for linux,
+a better approach is to pass these options from top level configure.
