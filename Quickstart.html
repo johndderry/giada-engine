@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Quickstart</title>
+  </head>
+  <body>
+    <h2>Building GiadaEngine from the Github Repository<br>
+    </h2>
+    <p>These are the instructions for Linux. <br>
+    </p>
+    <p>Download the zip file from the github repository. You'll need the
+      c++ compiler, jack and fltk development libraries available.
+      GiadaEngine has the RtAudio, RtMidi and MidiFile libraries as
+      internal libraries for ease of building.<br>
+    </p>
+    <p>Basically, do these steps:<br>
+    </p>
+    <p>$ unzip giada-engine-master.zip<br>
+      $ cd giada-engine-master<br>
+      giada-engine-master$ ./autogen.sh<br>
+      giada-engine-master$ ./configure --target=linux<br>
+      giada-engine-master$ make<br>
+    </p>
+    <p>This should make two binaries, the engine in console mode (
+      ./engine/gdEngine ) and the fltk interface (
+      ./interfaces/fltk/giada ). The fltk giada binary is the one we are
+      concerned with here.<br>
+    </p>
+    <h2>Setting Up GiadaEngine</h2>
+    <p>Starting Giada for the first time it should complain about an
+      invalid configuration and start with defaults. It may also say the
+      sound card is not configured correctly, but don't worry. You will
+      want to go immediately and configure it the program to match your
+      installation. <br>
+    </p>
+    <h3>Configuration</h3>
+    <p>The <b>config</b> button opens a configuration window with four
+      tabs, <b>Sound System</b>, <b>Midi</b>, <b>Behaviors</b>, and <b>Misc</b>.
+      Most of the changes you make in the settings of configuration will
+      not become active until you exit and restart Giada.<br>
+    </p>
+    <h4>Sound System</h4>
+    <p>Primarily, check the settings of System, Output device, Input
+      Device, and Record delay compensation here.<br>
+    </p>
+    <h4>MIDI</h4>
+    <p>Check System, Output port, Input port. <br>
+    </p>
+    <h4>Behaviors</h4>
+    <p>Controls various behaviors during operation.<br>
+    </p>
+    <h4>Misc</h4>
+    <p>You may want to enable debug messages to the console. It says
+      standard output, but it's really console standard error.
+      GiadaEngine will then display what audio and midi devices it sees
+      when starting up.<br>
+    </p>
+    <p>Setup the alternate click style and midi click. GiadaEngine
+      default click style is Giada's original which has a click on each
+      beat and one louder click on the downbeat. The alternate style
+      places the louder click on the last beat for a fill beat, but then
+      (for midi click) adds a downbeat event. Midi click is by default
+      off, where the click is created in PCM audio. Enabling it will
+      have midi events sent on Channel 10 to use midi instruments. These
+      can be reconfigured in the MIDI tab, by default they are using
+      General Midi closed Hi-hat, open Hi-hat and Bass drum.<br>
+    </p>
+    <p>After setting things up, it's important to verify that all the
+      setting are correct when you just start up the program. This makes
+      sure the engine operates correctly.<br>
+    </p>
+    <h2>Layout of the GiadaEngine Main Window</h2>
+    <p>At the top left are four menu buttons:&nbsp; <b>file</b>, <b>edit</b>,
+      <b>config</b> and <b>about</b>.<br>
+    </p>
+    <p>To the right of that are: <b>output meter</b>, <b>input meter</b>,
+      <b>output </b><b>level</b> and <b>input level</b>.<br>
+    </p>
+    <p>Back on the left under the menu buttons are the sequencer
+      transport controls: <b>rewind</b>, <b>play</b>, <b>record
+        actions</b>, <b>record sample</b>, <b>enable-click</b>.<br>
+    </p>
+    <p>To the right of that are timing controls: <b>enable-quantify</b>,
+      <b>increase tempo</b>, <b>set tempo</b> (which also displays
+      tempo), <b>decrease tempo</b>. Then there are two rows. The top
+      row has <b>enable</b><b> song advance</b>, <b>manual advance</b>,
+      <b>double song sections</b> and <b>halve song sections</b>. The
+      bottom row has <b>set-timing</b> (which also displays timing), <b>double
+        beats</b> and <b>halve beats</b>.<br>
+    </p>
+    <p>Next, centered in the window are two horizontal display bars
+      which are the song and meter display bars. The top row of squares
+      is the song bar and it show the engine's progress through the song
+      sections. The bottom row is the beat bar and it shows the engines
+      progress through the beats and measures of one section.<br>
+    </p>
+    <p>Under that are 32 check boxes for opening section windows for
+      each possible a song section.<br>
+    </p>
+    <p>Below that are two columns available for adding channels in the
+      uni-section of the song, which are for channels that don't belong
+      to song section, hence they are called universal. The third column
+      has only a button for adding new columns. <br>
+    </p>
+    <h2>Using GiadaEngine</h2>
+    <h3>Creating Something from Scratch</h3>
+    <p>Here are the basic steps for creating a hybrid sample/midi
+      project from scratch. It assumes you have both input and output
+      devices for audio and midi available and functioning.<br>
+    </p>
+    <h4>1. Set Up Some Some Basic Parameters</h4>
+    <p>Choose at a minimum the number of beats in you looping samples.
+      It defaults to four beats in one measure, shown as 4/1. You can
+      have up to 32 beats in any sample. Beyond that, you will use
+      sections to add more dynamic features to your loops.<br>
+    </p>
+    <p>Start the sequencer with play transport control. You will see the
+      beats of the sequencer progress on the lower grid of the beat
+      meter. Adjust the tempo. Adjust the <b>input level</b>, it will
+      be zero on starting. Verify you have input signal. <br>
+    </p>
+    <p>You're now set to do some sampled looping. You can perform all
+      the functioning you need to create analog and midi sample tracks,
+      edit them, select when they play back, <i>while the sequence runs</i>.
+      You are truly live and action never has to stop! <br>
+    </p>
+    <h4>2. Create a Sample Channel in the Uni Section</h4>
+    <p>Select <b>Add new channe</b><b>l</b><b> :</b> <b>Sample Channel</b>.</p>
+    <p>You now have an empty sample channel. The channel display is
+      meant to resemble a analog mixer channel, arranged horizontally.
+      The left button will activate/play the sample, the next button
+      displays sample position, the third larger button will show the
+      title and open a menu of channel related operations. The next
+      button controls looping and shows a "_" initially. The next button
+      "M" enables mute, and "S" enables soloing.<br>
+    </p>
+    <p>Now, a sample that you can record can be used in one of two ways:
+      It can be played over the beats of the song like a analog channel
+      might, or it can be played repeatedly from the beginning like a
+      sample from a sampler might. In this discussion, I am assuming use
+      as a analog channel might be used.<br>
+    </p>
+    <p>To record the sample, use the <b>record sample</b> button from
+      the transport control. Immediately the name of the channel will
+      change to a logical name, the channel display will turn blue and
+      the sample will begin recording. Once enabled, sampling will
+      continue even as the beats come to and end the the sample begins
+      from the beginning. Sample audio data is being accumulated in the
+      channel, it is basically overdubbing onto itself. Therefore it is
+      important to only have the channel in record mode and sampling
+      only during the period required! Use the <b>record sample</b>
+      button again to stop recording of the sample. <br>
+    </p>
+    <p>By default the sample is set to trigger singly, called
+      Oneshot.basic, which you can do with the activate/play button. To
+      have the sample played back continually, set to Loop.basic. You
+      should be able to hear the sample now.</p>
+    <h4>3. Create a Midi Channel in the Uni Section</h4>
+    <p>Select <b>Add new channe</b><b>l</b><b> : Midi Channel</b>.</p>
+    <p>You now have an empty midi channel. Again, the channel display is
+      meant to resemble a analog mixer channel, arranged horizontally.
+      The left button will activate/play the sample, the next button
+      selects grab-record. The other buttons are the same as for sample
+      channel: the third larger button will show the title and open a
+      menu of channel related operations. The next button controls
+      looping and shows a "_" initially. The next button "M" enables
+      mute, and "S" enables soloing.<br>
+    </p>
+    <p>By default midi channels are set to enable midi event tunneling (
+      to capture midi notes ), enable midi output, and go into play mode
+      immediately ( for uni channels, which can be re-configured ). In
+      this configuration&nbsp; ( as well as any time midi output is
+      enabled on any midi channel ) <b>any midi note events on the
+        input are immediately echoed to the midi output on the midi
+        output channel</b>. If you are using a keyboard, the keyboard
+      notes are echoed on the correct channel.<br>
+    </p>
+    To record the sample, use the <b>record events</b> button from the
+    transport control. Recording events means any midi events occurring
+    on the midi input channel will be sent to any channels that may want
+    to make use of them. We are using the midi channels here in
+    midi-tunnel mode, the default, so these events represent midi notes
+    and controller events.<br>
+    <br>
+    Immediately the name of the channel will change to a logical name,
+    and the channel display will turn red and the channel will begin
+    recording. Like with samples, once enabled, sampling will continue
+    even as the beats come to and end the the sample begins from the
+    beginning. Midi event data is being accumulated in the channel, it
+    is basically overdubbing onto itself. Therefore it is important to
+    only have the channel in record mode and sampling&nbsp; only during
+    the period required! Use the <b>record events</b> button again to
+    stop recording of the sample. <br>
+    <br>
+    After recording, the midi channel may need to be activated to play.
+    With automatic playback of Uni channels enabled, on Uni channels
+    that won't be necessary. Channels in specific sections other than
+    Uni section will receive their playback enabling when their section
+    comes up for play. Other than that, the <b>activate/play</b> button
+    toggles between active or not.<br>
+    <h4>3. Create Channels in Song Sections Other Than Uni</h4>
+    <p>Song Sections are meant to provide the arrangement of the samples
+      into a song. There are up to 32 possible sections, and they are
+      represented by the rectangles of the top grid. You see them
+      progress any time the sequencer is running. The section advances
+      to the next one after the sequencer completes all song beats, as
+      long as the song advance is enabled. <br>
+    </p>
+    <p>Initially, all the representational rectangles for each section
+      are blank. Clicking on one will begin rotating in through possible
+      song sections beginning with Sect <b>A</b>, Sect, <b>B,</b> etc.
+      <i>Having a section letter other than blank is giving assignment
+        to that section.</i> The possible section names are limited to
+      the number of sections in the song (four sections goes up to <b>D</b>).<br>
+    </p>
+    <p>Once you've assigned a section label to rectangle in the song
+      meter, channels in that Section will be automatically set to play
+      when the song enters that Section, and will be automatically
+      stopped when the song leaves that section. Uni channels are not
+      affected by sections. You have to start Uni channels by hand, with
+      the exception being new channels may be set to play automatically.
+      See the <b>Behaviors</b> tab of the configuration to control this
+      behavior.<br>
+    </p>
+    <p>To create channels in various Sections, open the window for that
+      section by toggling the selector for that window, one of the 32
+      check boxes under the song/beat meter. The window will have the
+      same two columns for channels and another for creating new
+      columns. Create sample and midi channels in the same fashion as
+      for Uni channels. <br>
+    </p>
+    <p>As the song progresses through the sections, each active section
+      will have the channels lite up with background colors to indicate
+      the state of the channel: pink for active channel, red for midi
+      channel in record mode, blue for sample channel in record mode.
+      Nonactive channels will be dark.<br>
+    </p>
+    <p><br>
+    </p>
+    <br>
+    <br>
+    <p><br>
+    </p>
+    <p><br>
+    </p>
+  </body>
+</html>
