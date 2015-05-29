@@ -280,8 +280,8 @@ gdBrowser::gdBrowser(const char *title, const char *initPath, Channel *ch, int t
 
 	Fl_Group *group_upd = new Fl_Group(8, 8, 380, 25);
 
-	if ( (type & BROWSER_SAVE_PATCH) || (type & BROWSER_SAVE_SAMPLE) || 
-	     (type & BROWSER_SAVE_MIDI) || (type & BROWSER_SAVE_PROJECT)) 
+	if ( (type == BROWSER_SAVE_PATCH) || (type == BROWSER_SAVE_SAMPLE) || 
+	     (type == BROWSER_SAVE_MIDI) || (type == BROWSER_SAVE_PROJECT)) 
 	{
 		name = new gInput(208, 8, 152, 20);
 		where = new gInput(8, 8, 192, 20);
@@ -301,22 +301,22 @@ gdBrowser::gdBrowser(const char *title, const char *initPath, Channel *ch, int t
 	where->readonly(true);
 	where->cursor_color(COLOR_BG_DARK);
 
-	if ( (type & BROWSER_SAVE_PATCH) || (type & BROWSER_SAVE_SAMPLE) || 
-	     (type & BROWSER_SAVE_MIDI) || (type & BROWSER_SAVE_PROJECT)) 
+	if ( (type == BROWSER_SAVE_PATCH) || (type == BROWSER_SAVE_SAMPLE) || 
+	     (type == BROWSER_SAVE_MIDI) || (type == BROWSER_SAVE_PROJECT)) 
 		ok->label("Save");
 	else
 		ok->label("Load");
 
-	if (type & BROWSER_LOAD_PATCH)
+	if (type == BROWSER_LOAD_PATCH)
 		ok->callback(cb_load_patch, (void*)this);
 	else
-	if (type & BROWSER_LOAD_SAMPLE)
+	if (type == BROWSER_LOAD_SAMPLE)
 		ok->callback(cb_load_sample, (void*)this);
 	else
-	if (type & BROWSER_LOAD_MIDI)
+	if (type == BROWSER_LOAD_MIDI)
 		ok->callback(cb_load_midi, (void*)this);
 	else
-	if (type & BROWSER_SAVE_PATCH) {
+	if (type == BROWSER_SAVE_PATCH) {
 		ok->callback(cb_save_patch, (void*)this);
 		name->value(G_Patch.name[0] == '\0' ? "my_patch.gptc" : G_Patch.name);
 		name->maximum_size(MAX_PATCHNAME_LEN+5); // +5 for ".gptc"
@@ -331,6 +331,7 @@ gdBrowser::gdBrowser(const char *title, const char *initPath, Channel *ch, int t
 		ok->callback(cb_save_midi, (void*)this);
 		name->value(ch->name.c_str());
 	}
+	else
 	if (type == BROWSER_SAVE_PROJECT) {
 		ok->callback(cb_save_project, (void*)this);
 		name->value(gStripExt(G_Patch.name).c_str());
