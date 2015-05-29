@@ -414,17 +414,22 @@ int MidiChannel::save(const char *path)
 
 int MidiChannel::load(const char *path)
 {
-	gLog("[MidiChannel] load from %s\n", path ); 
+	gLog("[MidiChannel] load from %s ...", path ); 
 
 	MidiFile *midifile = new MidiFile();
 	
 	if( midifile->read( path ) ) {
 		
-		if( recorder::fromMidi( index, midifile ) )
-		delete midifile;
-		return 1;
+		if( recorder::fromMidi( index, midifile ) ) {
+			gLog("success\n");
+			delete midifile;
+			pathfile = path;
+			name     = gStripExt(gBasename(path).c_str());
+			return 1;
+		}
 	}
 
+	gLog("failure\n");
 	delete midifile;
 	return 0;
 }
