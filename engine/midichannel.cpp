@@ -373,7 +373,7 @@ void MidiChannel::writePatch(FILE *fp, int i, bool isProject)
 {
 	Channel::writePatch(fp, i, isProject);
 
-	const char *path = "";
+	const char *path;
 	path = pathfile.c_str();
 	if (isProject)
 		path = gBasename(path).c_str();  // make it portable
