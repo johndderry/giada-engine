@@ -373,6 +373,12 @@ void MidiChannel::writePatch(FILE *fp, int i, bool isProject)
 {
 	Channel::writePatch(fp, i, isProject);
 
+	const char *path = "";
+	path = pathfile.c_str();
+	if (isProject)
+		path = gBasename(path).c_str();  // make it portable
+		
+	fprintf(fp, "samplepath%d=%s\n",         i, path);
 	fprintf(fp, "chanMidiOut%d=%u\n",        i, midiOut);
 	fprintf(fp, "chanMidiOutChan%d=%u\n",    i, midiOutChan);
 	fprintf(fp, "chanMidiOutProg%d=%u\n",    i, midiOutProg);
