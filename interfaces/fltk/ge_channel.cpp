@@ -853,7 +853,7 @@ std::string gMidiChannel::setName() {
 	sprintf(wname, "MIDI-%d", G_Patch.lastMidiId);
 	while (!uniqueMidiname( wname )) {
 		G_Patch.lastMidiId++;
-		sprintf(wname, "MIDI-%d", G_Patch.lastTakeId);
+		sprintf(wname, "MIDI-%d", G_Patch.lastMidiId);
 	}
 	
 	gLog("midichannel name set to '%s'\n", wname);
