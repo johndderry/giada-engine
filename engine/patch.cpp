@@ -678,8 +678,8 @@ int Patch::write(const char *file, const char *name, bool project)
 	fprintf(fp, "versionf=%f\n",   VERSIONE_FLOAT);
 #else
 	// can't use real version number, use fake
-	fprintf(fp, "version=1.0\n",    VERSIONE);
-	fprintf(fp, "versionf=1.000000\n",   VERSIONE_FLOAT);
+	fprintf(fp, "version=1.0\n" );
+	fprintf(fp, "versionf=1.000000\n" );
 #endif
 	fprintf(fp, "patchname=%s\n",  name);
 	fprintf(fp, "bpm=%f\n",        G_Mixer.bpm);
