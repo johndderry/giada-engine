@@ -671,10 +671,16 @@ int Patch::write(const char *file, const char *name, bool project)
 	if (fp == NULL)
 		return 0;
 
-	fprintf(fp, "# --- Giada patch file --- \n");
+	fprintf(fp, "# --- Giada patch file from GiadaEngine\n");
 	fprintf(fp, "header=GIADAPTC\n");
+#if 0
 	fprintf(fp, "version=%s\n",    VERSIONE);
 	fprintf(fp, "versionf=%f\n",   VERSIONE_FLOAT);
+#else
+	// can't use real version number, use fake
+	fprintf(fp, "version=1.0\n",    VERSIONE);
+	fprintf(fp, "versionf=1.000000\n",   VERSIONE_FLOAT);
+#endif
 	fprintf(fp, "patchname=%s\n",  name);
 	fprintf(fp, "bpm=%f\n",        G_Mixer.bpm);
 	fprintf(fp, "bars=%d\n",       G_Mixer.bars);
