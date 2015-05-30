@@ -1,11 +1,16 @@
 KNOWN ISSUES
 
--- Initial Release May 24, 2015
+0.1 --- Updated May 29, 2015
 
-* updating of the midi track name, after events exist, doesn't occur on the screen.
-You will see the correct name assigned when you go to export the file.
+* notes which roll over the last beat cannot be seen in the editor and causes hanging tones
+when used in sections.
 
-* exporting more than one midifile will cause a crash in the midifile library.
+0.1 --- Initial Release May 24, 2015
+
+* updating of the midi track name, after becoming a logical track whenever events exist, 
+  doesnt work. Once you export and give it a name, though, it will be part of the patch.
+
+X exporting more than one midifile will cause a crash in the midifile library. RESOLVED
 
 * autogen.sh complains about missing files, suggests foreign option.
 
