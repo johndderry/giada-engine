@@ -10,9 +10,9 @@ when used in sections.
 * updating of the midi track name, after becoming a logical track whenever events exist, 
   doesnt work. Once you export and give it a name, though, it will be part of the patch.
 
-X exporting more than one midifile will cause a crash in the midifile library. RESOLVED
+* exporting more than one midifile will cause a crash in the midifile library. UNRESOLVED
 
 * autogen.sh complains about missing files, suggests foreign option.
 
-* configure.ac in rtaudio has been hack to only use --with-alsa and --with-linux for linux,
+* configure.ac in rtaudio has been hack to only use --with-alsa and --with-jack for linux,
 a better approach is to pass these options from top level configure.

@@ -46,6 +46,8 @@ public:
 
 	void (*updateRecInput)(int, void *);
 
+	void (*updateActionButton)(int, void *);
+
 	void (*updateMetronome)(int, void *);
 
 	void (*setChannelWithActions)(void *, void *);

@@ -1,7 +1,0 @@
-kernel.o: kernel.cpp const.h config.h kernel.h
-
-const.h:
-
-config.h:
-
-kernel.h:

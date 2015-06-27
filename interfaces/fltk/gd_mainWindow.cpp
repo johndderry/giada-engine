@@ -448,7 +448,6 @@ void gMenu::__cb_edit()
 /* ------------------------------------------------------------------ */
 /* ------------------------------------------------------------------ */
 
-
 gController::gController(int x, int y)
 	: Fl_Group(x, y, 131, 25)
 {
@@ -484,6 +483,9 @@ gController::gController(int x, int y)
 	G_Interface->updateMetronome = cb_updateMetronome;
 	G_Interface->updateRecInput = cb_updateRecInput;
 	G_Interface->updateRecAction = cb_updateRecAction;
+
+	/* set up the channel updateActionButton as well */
+	G_Interface->updateActionButton = &(gSampleChannel::cb_updateActionButton);
 
 	gLog("controller.updatePlay,updateMetronome,updateRecInput,updateRecAction\n");
 }

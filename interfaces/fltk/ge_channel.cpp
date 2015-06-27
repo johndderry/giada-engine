@@ -132,6 +132,11 @@ void gSampleChannel::cb_solo        (Fl_Widget *v, void *p) { ((gSampleChannel*)
 void gSampleChannel::cb_openMenu    (Fl_Widget *v, void *p) { ((gSampleChannel*)p)->__cb_openMenu(); }
 void gSampleChannel::cb_changeVol   (Fl_Widget *v, void *p) { ((gSampleChannel*)p)->__cb_changeVol(); }
 void gSampleChannel::cb_readActions (Fl_Widget *v, void *p) { ((gSampleChannel*)p)->__cb_readActions(); }
+void gSampleChannel::cb_updateActionButton (int i, void *p) 
+{
+ ((gSampleChannel*)p)->__cb_updateActionButton(i);
+}
+
 #ifdef WITH_VST
 void gSampleChannel::cb_openFxWindow(Fl_Widget *v, void *p) { ((gSampleChannel*)p)->__cb_openFxWindow(); }
 #endif
@@ -360,6 +365,24 @@ void gSampleChannel::__cb_readActions()
 
 /* ------------------------------------------------------------------ */
 
+//
+// this routine is a called from main thread
+//
+void gSampleChannel::__cb_updateActionButton(int value)
+{
+	/* quit if 'R' does not exist yet. */
+
+	if (readActions == NULL)
+		return;
+
+	Fl::lock();
+	readActions->value(value);
+	Fl::unlock();
+	
+}
+
+/* ------------------------------------------------------------------ */
+
 
 void gSampleChannel::openBrowser(int type)
 {
@@ -518,7 +541,7 @@ int gSampleChannel::keyPress(int e)
 
 void gSampleChannel::addActionButton()
 {
-	/* quit if 'R' exists yet. */
+	/* quit if 'R' already exists. */
 
 	if (readActions != NULL)
 		return;

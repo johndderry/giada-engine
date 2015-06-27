@@ -4,10 +4,11 @@
 # prereq & init
 
 AC_PREREQ(2.60)
-AC_INIT([giada-engine], [0.1], [john@domainofchildhood.com])
+AC_INIT([giada-engine], [0.1])
 AC_CONFIG_SRCDIR([engine/main.cpp])
 AC_PROG_RANLIB
-AM_INIT_AUTOMAKE([giada-engine], [0.1])
+AM_INIT_AUTOMAKE([foreign])
+
 
 # ----------------------------------------------------------------------
 

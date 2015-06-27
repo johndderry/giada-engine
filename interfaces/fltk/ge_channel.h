@@ -107,6 +107,7 @@ private:
 	inline void __cb_button      ();
 	inline void __cb_openMenu    ();
 	inline void __cb_readActions ();
+	void __cb_updateActionButton(int i);
 #ifdef WITH_VST
 	inline void __cb_openFxWindow();
 #endif
@@ -130,6 +131,8 @@ public:
 
 	void addActionButton();
 	void delActionButton(bool force=false);
+
+	static void cb_updateActionButton(int i, void *p);
 
 	class gModeBox	*modeBox;
 	class gClick 	*readActions;

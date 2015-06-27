@@ -23,13 +23,23 @@ gdEngine_LDADD = $(top_builddir)/engine/libengine.a \
 	-lasound -ldl -ljack -lm -lpthread -lsamplerate -lsndfile
 endif
 if WINDOWS
-								-lwininet -lgdi32 -lshell32 -lvfw32 -lrpcrt4 \
-								-luuid -lcomctl32 -lole32 -lws2_32 -lsndfile \
-								-lsamplerate -lrtmidi -lwinmm -lsetupapi -lksuser
+gdEngine_LDADD = $(top_builddir)/engine/libengine.a \
+    $(top_builddir)/midifile/lib/libmidifile.a \
+	$(top_builddir)/rtaudio/librtaudio.a \
+	$(top_builddir)/rtmidi/librtmidi.a \
+	-ldsound -lwsock32 -lm -lpthread \	
+	-lwininet -lgdi32 -lshell32 -lvfw32 -lrpcrt4 \
+	-luuid -lcomctl32 -lole32 -lws2_32 -lsndfile \
+	-lsamplerate -lwinmm -lsetupapi -lksuser
 endif
 if OSX
-								-lsamplerate
-                -framework CoreMIDI -framework CoreFoundation
+gdEngine_LDADD = $(top_builddir)/engine/libengine.a \
+    $(top_builddir)/midifile/lib/libmidifile.a \
+	$(top_builddir)/rtaudio/librtaudio.a \
+	$(top_builddir)/rtmidi/librtmidi.a \
+	-lm -lpthread -lsamplerate -lsndfile
+giada_LDFLAGS = -framework CoreAudio -framework Cocoa -framework Carbon \
+    -framework CoreMIDI -framework CoreFoundation
 endif
 
 
@@ -55,6 +65,12 @@ if OSX
 rename:
 	mv gdEngine gdengine_osx
 endif
+
+# clean up for git add
+gitclean:
+	(make clean)
+	rm -r .deps
+	rm Makefile Makefile.in
 
 noinstHEADERS = patch.h channel.h config.h const.h kernel.h kernelaudio.h kernelmidi.h \
 	midichannel.h samplechannel.h utility.h mixer.h control.h recorder.h \

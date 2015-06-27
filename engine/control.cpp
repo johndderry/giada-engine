@@ -67,11 +67,9 @@ void startSeq(bool gui)
 		kernelMidi::send(MIDI_POSITION_PTR, 0, 0);
 	}
 
-	if( G_Interface ) {
-		
+	if( G_Interface )
 		G_Interface->updatePlay(1, G_Interface->controller);
 		
-	}
 }
 
 
@@ -160,7 +158,7 @@ void startActionRec() {
 	recorder::active = true;
 
 	if( G_Interface ) 
-		G_Interface->updateRecAction(0, G_Interface->controller);
+		G_Interface->updateRecAction(1, G_Interface->controller);
 		
 }
 
@@ -216,16 +214,10 @@ void startReadingRecs(SampleChannel *ch, bool gui) {
 		ch->recStatus = REC_WAITING;
 	else
 		ch->setReadActions(true);
-#if 0
-	if (!gui) {
-		gSampleChannel *gch = (gSampleChannel*)ch->guiChannel;
-		if (gch->readActions) { // if button exists
-			Fl::lock();
-			gch->readActions->value(1);
-			Fl::unlock();
-		}
-	}
-#endif
+
+	if (!gui && G_Interface ) 
+		G_Interface->updateActionButton(1, ch->guiChannel);
+
 }
 
 
@@ -241,16 +233,10 @@ void stopReadingRecs(SampleChannel *ch, bool gui) {
 		ch->recStatus = REC_ENDING;
 	else
 		ch->setReadActions(false);
-#if 0
-	if (!gui) {
-		gSampleChannel *gch = (gSampleChannel*)ch->guiChannel;
-		if (gch->readActions) {  // if button exists
-			Fl::lock();
-			gch->readActions->value(0);
-			Fl::unlock();
-		}
-	}
-#endif
+
+	if (!gui && G_Interface ) 
+		G_Interface->updateActionButton(0, ch->guiChannel);
+
 }
 
 
@@ -429,9 +415,7 @@ void setSoloOn(Channel *ch, bool gui)
 	if (ch->mute) {
 		ch->unsetMute(false);
 		if( G_Interface ) 			
-			G_Interface->setChanMute( ch, false, G_Interface->controller );
-			
-		
+			G_Interface->setChanMute( ch, false, G_Interface->controller );		
 	}
 
 	if (!gui && G_Interface ) 	
