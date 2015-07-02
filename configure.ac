@@ -46,6 +46,7 @@ AC_PROG_CXX
 AC_PROG_CC
 AC_PROG_INSTALL
 AC_PROG_MAKE_SET
+AC_PROG_LEX
 
 # ----------------------------------------------------------------------
 
@@ -122,6 +123,6 @@ fi
 
 # finalizing
 AC_CONFIG_SUBDIRS([rtaudio rtmidi])
-AC_CONFIG_FILES([Makefile engine/Makefile interfaces/Makefile interfaces/fltk/Makefile])
+AC_CONFIG_FILES([Makefile engine/Makefile interfaces/Makefile interfaces/fltk/Makefile interfaces/net/Makefile])
 
 AC_OUTPUT

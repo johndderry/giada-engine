@@ -43,6 +43,8 @@
 
 namespace control {
 
+enum ScanTokens { STOP_SEQ, START_SEQ, REWIND_SEQ, PLAY_ALL };
+
 extern bool quit;
 extern bool restart;
 

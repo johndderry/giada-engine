@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>GiadaUI</title>
+  <link rel="stylesheet" href="giada.css">
+</head>
+<body>
+<div id="menu">
+  <button id="file">file</button>
+  <button id="edit">edit</button>
+  <button id="config">config</button>
+  <button id="about">about</button>
+</div>
+<div id="inOut">InOut</div>
+<div id="controller">
+  <button id="rewind"><img src="images/rewind.png" height="40" width="40"></button>
+  <button id="play"><img src="images/play.png" height="40" width="40"></button>
+  <button id="recAction"><img src="images/recAction.png" height="40" width="40"></button>
+  <button id="recSample"><img src="images/recSample.png" height="40" width="40"></button>
+  <button id="metronome">M</button>
+</div>
+<div id="timing">
+  <select id="quantizer">
+    <option>off</option>
+    <option>1b</option>
+    <option>2b</option>
+    <option>3b</option>
+    <option>4b</option>
+    <option>6b</option>
+    <option>8b</option>
+  </select>
+  <button id="incrBPM">+</button>
+  <input type="text" id="bpm" size="4" value="120.0">
+  <button id="decrBPM">-</button>
+  <button id="meter">4/1</button>
+  <button id="multipier">x</button>
+  <button id="divider">÷</button>
+  <button id="suspend">Susp</button>
+  <button id="advance">Advc</button>
+  <button id="songMultipier">X</button>
+  <button id="songDivider">/</button>
+</div>
+<table class="meter" id="songMeter"></table>
+<table class="meter" id="beatMeter"></table>
+<div id="launcher">Launcher</div>
+<div id="uniKeyboard">uniKeyboard</div>
+<script type="application/dart" src="GiadaUI.dart"></script>
+<script data-pub-inline src="packages/browser/dart.js"></script>
+</body>
+</html>

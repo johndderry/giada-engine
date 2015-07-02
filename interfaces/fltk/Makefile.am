@@ -26,7 +26,7 @@ giada_LDADD = $(top_builddir)/engine/libengine.a \
 	$(top_builddir)/midifile/lib/libmidifile.a \
 	$(top_builddir)/rtaudio/librtaudio.a \
 	$(top_builddir)/rtmidi/librtmidi.a \
-	-ldsound -lwsock32 -lm -lpthread \	
+	-ldsound -lwsock32 -lm -lpthread \
 	-lfltk -lwininet -lgdi32 -lshell32 -lvfw32 -lrpcrt4 \
 	-luuid -lcomctl32 -lole32 -lws2_32 -lsndfile \
 	-lsamplerate -lwinmm -lsetupapi -lksuser
