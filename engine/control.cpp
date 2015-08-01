@@ -439,16 +439,13 @@ void setSoloOff(Channel *ch, bool gui)
 			if (och->mute_s) {
 				och->setMute(false);
 				if( G_Interface ) 				
-					G_Interface->setChanMute( och->guiChannel, true, G_Interface->keyboard );					
-				
+					G_Interface->setChanMute( och->guiChannel, true, G_Interface->keyboard );								
 			}
 			else {
 				och->unsetMute(false);
-				if( G_Interface ) {
+				if( G_Interface )
+					G_Interface->setChanMute( och->guiChannel, false, G_Interface->keyboard );
 					
-					G_Interface->setChanMute( och->guiChannel, true, G_Interface->keyboard );
-					
-				}
 			}
 			och->mute_s = false;
 		}
