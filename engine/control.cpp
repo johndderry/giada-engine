@@ -376,7 +376,7 @@ void setMute(Channel *ch, bool gui)
 	ch->mute ? ch->unsetMute(false) : ch->setMute(false);
 
 	if (!gui && G_Interface) 	
-		G_Interface->setChanMute( ch, ch->mute, G_Interface->controller );	
+		G_Interface->setChanMute( ch->guiChannel, ch->mute, G_Interface->keyboard );	
 	
 }
 
@@ -407,7 +407,7 @@ void setSoloOn(Channel *ch, bool gui)
 		if (!och->solo && !och->mute) {
 			och->setMute(false);
 			if( G_Interface ) 			
-				G_Interface->setChanMute( och, true, G_Interface->controller );			
+				G_Interface->setChanMute( och->guiChannel, true, G_Interface->keyboard );			
 			
 		}
 	}
@@ -415,11 +415,11 @@ void setSoloOn(Channel *ch, bool gui)
 	if (ch->mute) {
 		ch->unsetMute(false);
 		if( G_Interface ) 			
-			G_Interface->setChanMute( ch, false, G_Interface->controller );		
+			G_Interface->setChanMute( ch->guiChannel, false, G_Interface->keyboard );		
 	}
 
 	if (!gui && G_Interface ) 	
-		G_Interface->setChanSolo( ch, true, G_Interface->controller );
+		G_Interface->setChanSolo( ch->guiChannel, true, G_Interface->keyboard );
 		
 }
 
@@ -439,14 +439,14 @@ void setSoloOff(Channel *ch, bool gui)
 			if (och->mute_s) {
 				och->setMute(false);
 				if( G_Interface ) 				
-					G_Interface->setChanMute( och, true, G_Interface->controller );					
+					G_Interface->setChanMute( och->guiChannel, true, G_Interface->keyboard );					
 				
 			}
 			else {
 				och->unsetMute(false);
 				if( G_Interface ) {
 					
-					G_Interface->setChanMute( och, true, G_Interface->controller );
+					G_Interface->setChanMute( och->guiChannel, true, G_Interface->keyboard );
 					
 				}
 			}
@@ -456,13 +456,13 @@ void setSoloOff(Channel *ch, bool gui)
 	else {
 		ch->setMute(false);
 		if( G_Interface ) 			
-			G_Interface->setChanMute( ch, true, G_Interface->controller );
+			G_Interface->setChanMute( ch->guiChannel, true, G_Interface->keyboard );
 	}
 
 	ch->solo = !ch->solo;
 
 	if (!gui && G_Interface )
-		G_Interface->setChanSolo( ch, false, G_Interface->controller );
+		G_Interface->setChanSolo( ch->guiChannel, false, G_Interface->keyboard );
 		
 }
 

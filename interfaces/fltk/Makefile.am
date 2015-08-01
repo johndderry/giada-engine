@@ -18,7 +18,7 @@ giada_LDADD = $(top_builddir)/engine/libengine.a \
 	$(top_builddir)/midifile/lib/libmidifile.a \
 	$(top_builddir)/rtaudio/librtaudio.a \
 	$(top_builddir)/rtmidi/librtmidi.a \
-	-lfltk -lX11 -lXext -lXft -lXpm \
+	-lfltk -lX11 -lXpm \
 	-lasound -ldl -ljack -lm -lpthread -lsamplerate -lsndfile
 endif
 if WINDOWS
