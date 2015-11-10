@@ -87,7 +87,7 @@ public:
 	void sendMidi(void *a, int localFrame);
 	void sendMidi(uint32_t data);
 	void recvMidi(uint32_t data);
-
+	void regOpenNote(uint32_t);
 #ifdef WITH_VST
 
 	/* getVstEvents
@@ -116,6 +116,9 @@ public:
 	bool    midiOutBank;       // enable bank change
 	uint8_t midiProgChg;       // program change value
 	uint8_t midiBankChg;       // bank change value
+  bool    openNotes[128];
+
+	//MidiFile  *midifile;
 
 	/* ---------------------------------------------------------------- */
 

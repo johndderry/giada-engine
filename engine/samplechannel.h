@@ -190,6 +190,7 @@ public:
 	int    fadeoutType;     // xfade or fadeout
 	int    fadeoutEnd;      // what to do when fadeout ends
 	int    key;
+	int    endmode;          // record end mode: 0(normal) no end, 1 end, 2 new sample 
 
 	/* recorder:: stuff */
 

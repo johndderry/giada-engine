@@ -1,8 +1,8 @@
-SUBDIRS = rtaudio rtmidi midifile engine interfaces
+SUBDIRS = rtaudio rtmidi libmdl engine interfaces
 
 gitclean:
+	(cd libmdl; make gitclean)
 	(cd engine; make gitclean)
 	(cd interfaces; make gitclean)
-	rm Makefile
-	rm Makefile.in
+	rm Makefile Makefile.in configure
 

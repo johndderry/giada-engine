@@ -2243,6 +2243,7 @@ GXX="no"
 
 
 
+
 if test "x$ac_cv_env_PKG_CONFIG_set" != "xset"; then
 	if test -n "$ac_tool_prefix"; then
   # Extract the first word of "${ac_tool_prefix}pkg-config", so it can be a program name with args.
@@ -4305,6 +4306,7 @@ if test -n "$PULSE_CFLAGS"; then
   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
   test $ac_status = 0; }; then
   pkg_cv_PULSE_CFLAGS=`$PKG_CONFIG --cflags "libpulse-simple" 2>/dev/null`
+		      test "x$?" != "x0" && pkg_failed=yes 
 else
   pkg_failed=yes
 fi
@@ -4321,6 +4323,7 @@ if test -n "$PULSE_LIBS"; then
   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
   test $ac_status = 0; }; then
   pkg_cv_PULSE_LIBS=`$PKG_CONFIG --libs "libpulse-simple" 2>/dev/null`
+		      test "x$?" != "x0" && pkg_failed=yes 
 else
   pkg_failed=yes
 fi
@@ -4340,9 +4343,9 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-	        PULSE_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors "libpulse-simple" 2>&1`
+	        PULSE_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "libpulse-simple" 2>&1`
         else 
-	        PULSE_PKG_ERRORS=`$PKG_CONFIG --print-errors "libpulse-simple" 2>&1`
+	        PULSE_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "libpulse-simple" 2>&1`
         fi
 	# Put the nasty error message in config.log where it belongs
 	echo "$PULSE_PKG_ERRORS" >&5

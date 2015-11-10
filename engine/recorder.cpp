@@ -32,6 +32,7 @@
 
 
 #include <math.h>
+#include <alsa/asoundlib.h>
 #include "engine.h"
 
 
@@ -676,6 +677,7 @@ void print()
 }
 
 
+#if 0
 int toMidi( int index, MidiFile *mf )
 {
 	action		*act;
@@ -735,7 +737,77 @@ int fromMidi( int index, MidiFile *mf )
 
 	return 1;
 }
+#else
+int toMidi( int index, Track *mf )
+{
+	action		*act;
+	//MidiEvent	event;
+	Channel 	*ch = G_Mixer.getChannelByIndex(index);
+	uint32_t 	ivalue;  // used only for MIDI events
+	
+	for (unsigned i=0; i<global.size; i++)
+		for (unsigned j=0; j<global.at(i).size; j++) {
+			act = global.at(i).at(j);
+			if( act->chan == index && act->type & ACTION_MIDI ) {
+				// convert this event
+				//event.tick = act->frame;
+				//event.track = ((MidiChannel *)ch)->midiOutChan;
+				ivalue = act->iValue;
+				gLog("frame %d | chan %d | action %d | ivalue %x | ", act->frame, act->chan, act->type, ivalue );
 
+				if( (ivalue&0xff000000) == (unsigned)MIDI_NOTE_ON ) {
+				//	event.makeNoteOn( (ivalue>>16) & 0xff, (ivalue>>8) & 0xff );
+					mf->recordAbsMevent(act->frame, 
+						0x90 | ((MidiChannel *)ch)->midiOutChan, 
+						(ivalue>>16) & 0xff, (ivalue>>8) & 0xff );
+					gLog("noteON\n");
+				}
+				else if( (ivalue&0xff000000) == (unsigned)MIDI_NOTE_OFF ) { 
+				//	event.makeNoteOff( (ivalue>>16) & 0xff, (ivalue>>8) & 0xff );
+					mf->recordAbsMevent(act->frame, 
+						0x80 | ((MidiChannel *)ch)->midiOutChan, 
+						(ivalue>>16) & 0xff, (ivalue>>8) & 0xff );
+					gLog("noteOFF\n");
+				}
+				else 
+					gLog("[RECORDER] toMidi: unknown message type %x\n", ivalue );
+				
+				//mf->addEvent( event );
+			}
+		}
+		
+	return 1;
+}
+
+
+int fromMidi( int index, Track *mf )
+{
+	MidiEvent	*event;
+	//nonMidiEvent	*nm_event;
+	//Channel 	*ch = G_Mixer.getChannelByIndex(index);
+	uint32_t 	ivalue = 0;  // used only for MIDI events
+	long unsigned tick = 0;
+	int etype;
+
+	while( (etype = mf->nextEvent()) != -1 )
+		if( etype ) {
+			// non -midi
+			/* nm_event = */ mf->nextnonMidi();
+		} else {
+			event = mf->nextMidi();
+			if( (event->eventstatus() & 0xf0) == 0x90 ) 
+				ivalue = MIDI_NOTE_ON | event->byte0() << 16 | event->byte1() << 8 ;
+			else if( (event->eventstatus() & 0xf0) == 0x80 )
+				ivalue = MIDI_NOTE_OFF | event->byte0() << 16 | event->byte1() << 8 ;
+
+			tick = tick + event->getdtime();
+			if( ivalue ) 
+				recorder::rec(index, ACTION_MIDI, tick, ivalue );  
+		}
+
+	return 1;
+}
+#endif
 
 
 } // namespace

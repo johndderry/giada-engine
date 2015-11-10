@@ -79,6 +79,7 @@ void Mixer::init() {
 	quanto      = 1;
 	docross     = false;
 	rewindWait  = false;
+	recordWait	= false;
 	running     = false;
 	ready       = true;
 	waitRec     = 0;
@@ -471,6 +472,15 @@ int Mixer::__masterPlay(void *out_buf, void *in_buf, unsigned bufferFrames) {
 			if (actualFrame > totalFrames) {
 				actualFrame = 0;
 				actualBeat  = 0;
+				if( chanInput != NULL )
+					 mh_stopInputRec();									
+
+				if( recordWait ) {
+					recordWait = false;
+					chanInput = waitChan;
+					inputTracker = actualFrame;
+				}
+				        
 				if ( !suspend ) advance();
 			}
 			else
@@ -934,14 +944,20 @@ SampleChannel *mh_startInputRec()
 		}
 	}
 
-	/* no chans available? */
+	/* no chans available? Return */
 
 	if (chan == NULL)
 		return NULL;
 
-	Wave *w = new Wave();
-	if (!w->allocEmpty(G_Mixer.totalFrames))
-		return NULL;
+	if( chan->endmode == 1 ) {	
+		// for end mode = ending, don't start recording until frame 0
+		G_Mixer.recordWait = true;
+		G_Mixer.waitChan = chan;
+	}
+
+	//Wave *w = new Wave();
+	//if (!w->allocEmpty(G_Mixer.totalFrames))
+	//	return NULL;
 
 	/* increase lastTakeId until the sample name TAKE-[n] is unique */
 
@@ -953,12 +969,15 @@ SampleChannel *mh_startInputRec()
 	}
 
 	chan->allocEmpty(G_Mixer.totalFrames, G_Patch.lastTakeId);
-	G_Mixer.chanInput = chan;
+	if( !G_Mixer.recordWait ) {
 
-	/* start to write from the actualFrame, not the beginning */
-	/** FIXME: move this before wave allocation*/
+		G_Mixer.chanInput = chan;
 
-	G_Mixer.inputTracker = G_Mixer.actualFrame;
+		/* start to write from the actualFrame, not the beginning */
+		/** FIXME: move this before wave allocation*/
+
+		G_Mixer.inputTracker = G_Mixer.actualFrame;
+	}
 
 	gLog(
 		"[mh] start input recs using chan %d with size %d, frame=%d\n",

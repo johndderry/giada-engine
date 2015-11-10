@@ -185,6 +185,7 @@ public:
 
 	bool   docross;	       // crossfade guard
 	bool   rewindWait;       // rewind guard, if quantized
+	bool   recordWait;		// recording starts at Frame 0 for delay recrding
 
 	int    framesPerBar;      // frames in one bar
 	int    framesPerBeat;     // frames in one beat
@@ -220,6 +221,7 @@ public:
 	 * the active channel during a recording. NULL = no channels active */
 
 	class SampleChannel *chanInput;
+	class SampleChannel  *waitChan;		// chan for delay recording
 
 	/* inputTracker
 	 * position of the sample in the input side (recording) */

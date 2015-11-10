@@ -52,6 +52,7 @@ SampleChannel::SampleChannel(int bufferSize)
 		fadeoutTracker   (0),
 		fadeoutStep      (DEFAULT_FADEOUT_STEP),
 		key              (0),
+		endmode          (1),
 		readActions      (true),
 		midiInReadActions(0x0),
 		midiInPitch      (0x0)

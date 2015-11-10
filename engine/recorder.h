@@ -54,9 +54,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
-#include "../midifile/include/MidiFile.h"
-
+//#include "../midifile/include/MidiFile.h"
+#include <alsa/asoundlib.h>
+#include "../libmdl/seqcontext.h"
+#include "../libmdl/midibase.h"
+#include "../libmdl/midistream.h"
 
 #ifdef WITH_VST
 
@@ -209,9 +211,9 @@ void stopOverdub(int frame);
 /*
  * convert to/from MidiFile */
  
-int toMidi(int, MidiFile *);
+int toMidi(int, Track *);
 
-int fromMidi(int, MidiFile *); 
+int fromMidi(int, Track *); 
  
 /* print
  * debug of the frame stack. */

@@ -42,6 +42,7 @@ MidiChannel::MidiChannel(int bufferSize)
 	  midiOutBank      (false),
 	  midiProgChg      (0),
 	  midiBankChg      (0)
+      //midifile(0)
 {
 
 	if( G_Conf.incrMidiChan ) {
@@ -185,8 +186,14 @@ void MidiChannel::parseAction(void *a, int localFrame, int globalFrame) {
 
 
 void MidiChannel::onZero(int frame) {
-	if (status == STATUS_ENDING)
+	if (status == STATUS_ENDING) {
+    for(int i=0;i<128;i++)
+      if( openNotes[i] ) {
+        gLog("[onZero] Note silenced: %d\n",i);
+        kernelMidi::send(0x80004000 | MIDI_CHANS[midiOutChan] | i<<16 );
+      }
 		status = STATUS_OFF;
+    }
 	else
 	if (status == STATUS_WAIT)
 		status = STATUS_PLAY;
@@ -250,6 +257,8 @@ void MidiChannel::start(int frame, bool doQuantize) {
 			kernelMidi::send( (MIDI_CHANS[midiOutChan] | MIDI_PROGRAM) >>24, midiProgChg, -1  );
 	}
 	
+	for(int i=0;i<128;i++) openNotes[i] = false;
+
 	switch (status) {
 		case STATUS_PLAY:
 			status = STATUS_ENDING;
@@ -315,15 +324,24 @@ int MidiChannel::loadByPatch(const char *f, int i) {
 
 /* ------------------------------------------------------------------ */
 
+void MidiChannel::regOpenNote( uint32_t data ) {
+
+    gLog("[regOpenNote] data = %x\n", data );
+    if( (data & 0xf0000000 ) == 0x90000000 ) openNotes[ (data & 0xff0000)>>16 ] = true;
+		else
+      if( (data & 0xf0000000 ) == 0x80000000 ) openNotes[ (data & 0xff0000)>>16 ] = false;
+   
+}
 
 void MidiChannel::sendMidi(void *a, int localFrame) 
 {
 	recorder::action *act = (recorder::action *) a;
 
 	if (status & (STATUS_PLAY | STATUS_ENDING) && !mute) {
-		if (midiOut)
+		if (midiOut) {
+      regOpenNote( act->iValue );
 			kernelMidi::send(act->iValue | MIDI_CHANS[midiOutChan]);
-
+    }
 #ifdef WITH_VST
 		act->event->deltaFrames = localFrame;
 		addVstMidiEvent(act->event);
@@ -335,8 +353,10 @@ void MidiChannel::sendMidi(void *a, int localFrame)
 void MidiChannel::sendMidi(uint32_t data) 
 {
 	if (status & (STATUS_PLAY | STATUS_ENDING) && !mute) {
-		if (midiOut)
+		if (midiOut) {
+      regOpenNote( data );
 			kernelMidi::send(data | MIDI_CHANS[midiOutChan]);
+    }
 #ifdef WITH_VST
 		addVstMidiEvent(data);
 #endif
@@ -349,9 +369,15 @@ void MidiChannel::sendMidi(uint32_t data)
 
 void MidiChannel::recvMidi(uint32_t data) 
 {
-
-	recorder::rec(this->index, ACTION_MIDI, G_Mixer.actualFrame, data);
-
+	int c = data & 0x0f000000;
+	// ignore any channel info
+	data = data & 0xf0ffffff;
+	if( c == 9 )		
+		// hack for Alesis drum pads
+		recorder::rec(this->index, ACTION_MIDI, G_Mixer.actualFrame+1, data);
+	else 
+		recorder::rec(this->index, ACTION_MIDI, G_Mixer.actualFrame, data);
+	
 }
 
 
@@ -395,18 +421,21 @@ int MidiChannel::save(const char *path)
 {
 	gLog("[MidiChannel] save to %s ...", path ); 
 	
-	MidiFile *midifile = new MidiFile();
-	midifile->absoluteTicks();
+	MidiFile *midifile = new MidiFile( path, "w+" );
+	Track	 *miditrack = new Track( midifile, 1024 );
+	//midifile->absoluteTicks();
+	midifile->timing( -1 );
 	
-	if( recorder::toMidi( index, midifile ) ) {
-	
-		if( midifile->write( path ) ) {
+	if( recorder::toMidi( index, miditrack ) ) {
+		miditrack->finish();	
+		//if( midifile->write( path ) ) {
 			gLog("success\n");
+			delete miditrack;
 			delete midifile;			
 			pathfile = path;
 			name     = gStripExt(gBasename(path).c_str());
 			return 1;
-		}
+		//}
 	}
 		
 	gLog("failure\n");
@@ -422,12 +451,15 @@ int MidiChannel::load(const char *path)
 {
 	gLog("[MidiChannel] load from %s ...", path ); 
 
-	MidiFile *midifile = new MidiFile();
+	MidiFile *midifile = new MidiFile( path, "r" );
+	Track	 *miditrack = new Track( midifile, 1024 );
+	midifile->timing( -1 );
 	
-	if( midifile->read( path ) ) {
+	if( miditrack->nextChunk() ) {
 		
-		if( recorder::fromMidi( index, midifile ) ) {
+		if( recorder::fromMidi( index, miditrack ) ) {
 			gLog("success\n");
+			delete miditrack;
 			delete midifile;
 			pathfile = path;
 			name     = gStripExt(gBasename(path).c_str());

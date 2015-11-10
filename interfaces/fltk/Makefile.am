@@ -15,7 +15,7 @@ graphics.cpp gui_utils.cpp
 
 if LINUX
 giada_LDADD = $(top_builddir)/engine/libengine.a \
-	$(top_builddir)/midifile/lib/libmidifile.a \
+	$(top_builddir)/libmdl/libmdl.a \
 	$(top_builddir)/rtaudio/librtaudio.a \
 	$(top_builddir)/rtmidi/librtmidi.a \
 	-lfltk -lX11 -lXpm \
@@ -23,7 +23,7 @@ giada_LDADD = $(top_builddir)/engine/libengine.a \
 endif
 if WINDOWS
 giada_LDADD = $(top_builddir)/engine/libengine.a \
-	$(top_builddir)/midifile/lib/libmidifile.a \
+	$(top_builddir)/libmdl/libmdl.a \
 	$(top_builddir)/rtaudio/librtaudio.a \
 	$(top_builddir)/rtmidi/librtmidi.a \
 	-ldsound -lwsock32 -lm -lpthread \
@@ -35,7 +35,7 @@ giada_SOURCES += resource.rc
 endif
 if OSX
 giada_LDADD = $(top_builddir)/engine/libengine.a \
-	$(top_builddir)/midifile/lib/libmidifile.a \
+	$(top_builddir)/libmdl/libmdl.a \
 	$(top_builddir)/rtaudio/librtaudio.a \
 	$(top_builddir)/rtmidi/librtmidi.a \
 	-lfltk -lm -lpthread -lsamplerate -lsndfile

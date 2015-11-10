@@ -123,6 +123,6 @@ fi
 
 # finalizing
 AC_CONFIG_SUBDIRS([rtaudio rtmidi])
-AC_CONFIG_FILES([Makefile engine/Makefile interfaces/Makefile interfaces/fltk/Makefile interfaces/net/Makefile])
+AC_CONFIG_FILES([Makefile libmdl/Makefile engine/Makefile interfaces/Makefile interfaces/fltk/Makefile interfaces/net/Makefile])
 
 AC_OUTPUT

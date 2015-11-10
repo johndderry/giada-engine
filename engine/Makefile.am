@@ -17,14 +17,14 @@ libengine_a_SOURCES = channel.cpp config.cpp control.cpp interface.cpp \
 
 if LINUX
 gdEngine_LDADD = $(top_builddir)/engine/libengine.a \
-    $(top_builddir)/midifile/lib/libmidifile.a \
+    $(top_builddir)/libmdl/libmdl.a \
 	$(top_builddir)/rtaudio/librtaudio.a \
 	$(top_builddir)/rtmidi/librtmidi.a \
 	-lasound -ldl -ljack -lm -lpthread -lsamplerate -lsndfile
 endif
 if WINDOWS
 gdEngine_LDADD = $(top_builddir)/engine/libengine.a \
-    $(top_builddir)/midifile/lib/libmidifile.a \
+    $(top_builddir)/libmdl/libmdl.a \
 	$(top_builddir)/rtaudio/librtaudio.a \
 	$(top_builddir)/rtmidi/librtmidi.a \
 	-ldsound -lwsock32 -lm -lpthread \
@@ -34,7 +34,7 @@ gdEngine_LDADD = $(top_builddir)/engine/libengine.a \
 endif
 if OSX
 gdEngine_LDADD = $(top_builddir)/engine/libengine.a \
-    $(top_builddir)/midifile/lib/libmidifile.a \
+    $(top_builddir)/libmdl/libmdl.a \
 	$(top_builddir)/rtaudio/librtaudio.a \
 	$(top_builddir)/rtmidi/librtmidi.a \
 	-lm -lpthread -lsamplerate -lsndfile
