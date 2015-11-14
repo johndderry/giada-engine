@@ -325,8 +325,8 @@ int MidiChannel::loadByPatch(const char *f, int i) {
 /* ------------------------------------------------------------------ */
 
 void MidiChannel::regOpenNote( uint32_t data ) {
-
-    gLog("[regOpenNote] data = %x\n", data );
+		// Register Open Note - keep track of all notes with key down state
+    //gLog("[regOpenNote] data = %x\n", data );
     if( (data & 0xf0000000 ) == 0x90000000 ) openNotes[ (data & 0xff0000)>>16 ] = true;
 		else
       if( (data & 0xf0000000 ) == 0x80000000 ) openNotes[ (data & 0xff0000)>>16 ] = false;

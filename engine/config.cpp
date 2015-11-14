@@ -184,6 +184,7 @@ void Conf::setDefault()
 	delayComp      = DEFAULT_DELAYCOMP;
 	limitOutput    = false;
 	rsmpQuality    = 0;
+  sampleEndMode = 1;
 
 	midiTackMesg   = 0x236f;	// bass drum 2, midi downbeat
 	midiTickMesg   = 0x2e60;	// open hihat 1, midi fill beat 
@@ -370,6 +371,7 @@ int Conf::read()
 
 	limitOutput = atoi(getValue("limitOutput").c_str());
 	rsmpQuality = atoi(getValue("rsmpQuality").c_str());
+	sampleEndMode = atoi(getValue("sampleEndMode").c_str());
 
 	std::string p = getValue("pluginPath");
 	strncpy(pluginPath, p.c_str(), p.size());
@@ -421,6 +423,7 @@ int Conf::write()
 	fprintf(fp, "samplerate=%d\n",     samplerate);
 	fprintf(fp, "limitOutput=%d\n",    limitOutput);
 	fprintf(fp, "rsmpQuality=%d\n",    rsmpQuality);
+	fprintf(fp, "sampleEndMode=%d\n",  sampleEndMode);
 
 	fprintf(fp, "midiSystem=%d\n",  midiSystem);
 	fprintf(fp, "midiPortOut=%d\n", midiPortOut);

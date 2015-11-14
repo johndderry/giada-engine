@@ -472,8 +472,11 @@ int Mixer::__masterPlay(void *out_buf, void *in_buf, unsigned bufferFrames) {
 			if (actualFrame > totalFrames) {
 				actualFrame = 0;
 				actualBeat  = 0;
-				if( chanInput != NULL )
-					 mh_stopInputRec();									
+				if( G_Conf.sampleEndMode == 1 && chanInput != NULL ) {
+					mh_stopInputRec();
+					// clear the recording button from being still ON
+					G_Interface->updateRecAction(0, G_Interface->controller);
+				}
 
 				if( recordWait ) {
 					recordWait = false;
@@ -949,7 +952,7 @@ SampleChannel *mh_startInputRec()
 	if (chan == NULL)
 		return NULL;
 
-	if( chan->endmode == 1 ) {	
+	if( G_Conf.sampleEndMode == 1 ) {	
 		// for end mode = ending, don't start recording until frame 0
 		G_Mixer.recordWait = true;
 		G_Mixer.waitChan = chan;

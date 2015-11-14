@@ -736,7 +736,8 @@ gTabBehaviors::gTabBehaviors(int X, int Y, int W, int H)
 
 	treatRecsAsLoops  = new gCheck(x(), y()+155, 280, 20, "Treat one shot channels with actions as loops");
 	incrMidiChan   = new gCheck(x(), y()+180, 280, 20, "Increment midi channel number when creating");
-	autoPlayMidi   = new gCheck(x(), y()+180+25, 280, 20, "Automatically play new (uni) midi channels");
+	autoPlayMidi   = new gCheck(x(), y()+180+25, 280, 20, "Automatically play new (uni) midi channels");         
+  stopSampleMode = new gCheck(x(), y()+180+50, 280, 20, "Stop sample recording at end of measure");
 
 	end();
 	labelsize(11);
@@ -746,6 +747,7 @@ gTabBehaviors::gTabBehaviors(int X, int Y, int W, int H)
 	G_Conf.treatRecsAsLoops   == 1 ? treatRecsAsLoops->value(1)  : treatRecsAsLoops->value(0);
 	G_Conf.incrMidiChan    == 1 ? incrMidiChan->value(1)  : incrMidiChan->value(0);
 	G_Conf.autoPlayMidi    == 1 ? autoPlayMidi->value(1)  : autoPlayMidi->value(0);
+	G_Conf.sampleEndMode  == 1 ? stopSampleMode->value(1)  : stopSampleMode->value(0);
 
 	recsStopOnChanHalt_1->callback(cb_radio_mutex, (void*)this);
 	recsStopOnChanHalt_0->callback(cb_radio_mutex, (void*)this);
@@ -779,6 +781,7 @@ void gTabBehaviors::save()
 	G_Conf.treatRecsAsLoops   = treatRecsAsLoops->value() == 1 ? 1 : 0;
 	G_Conf.incrMidiChan    = incrMidiChan->value() == 1 ? 1 : 0;
 	G_Conf.autoPlayMidi    = autoPlayMidi->value() == 1 ? 1 : 0;
+	G_Conf.sampleEndMode  = stopSampleMode->value() == 1 ? 1 : 0;
 }
 
 

@@ -146,6 +146,7 @@ public:
 	class gCheck *treatRecsAsLoops;
 	class gCheck *incrMidiChan;
 	class gCheck *autoPlayMidi;
+	class gCheck *stopSampleMode;
 
 
 	gTabBehaviors(int x, int y, int w, int h);

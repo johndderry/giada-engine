@@ -82,6 +82,7 @@ public:
 	int  delayComp;
 	bool limitOutput;
 	int  rsmpQuality;
+  int  sampleEndMode; // sample record end mode: 0(normal) no end, 1 end, 2 new sample 
 
 	int   midiSystem;
 	int   midiPortOut;
