@@ -45,6 +45,7 @@
 #include "kernelmidi.h"
 #include "kernelaudio.h"
 #include "init.h"
+#include "command.h"
 
 #ifdef WITH_VST
 #include "pluginHost.h"

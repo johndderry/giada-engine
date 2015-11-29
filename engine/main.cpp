@@ -54,18 +54,14 @@ int main( int argc, char **argv ) {
 	printf(
 	"gdEngine " VERSIONE " \n");
 
-	char chr; bool run = true;
+	CommandHandler *comms = new CommandHandler();
+	char line[128];
+	String *response;
 
-	while( run && (chr = getchar()) > 0 ) switch( chr ) {
-		case 10: case 13: break;
-		case 'q': run = false; break;
-		case ' ': control::startStopSeq(); break;
-		case 'p': control::startSeq(); break;
-		case 's': control::stopSeq(); break;
-		case 'r': control::rewindSeq(); break;
-		case 'a': control::playAll(); break;
-		case 'h': printf("q\tquit\np\tplay\ns\tstop\nspace\ttoggle\nr\trewind\na\tplay all\n"); break;
-		default : printf("'%c' not recognized, try 'h'\n", chr );
+	while( !control::quit ) {
+		fgets( line, 128, stdin );
+		response = comms->parse( line, strlen(line)-1 );
+		fputs( response->gets(), stdout ); fputc( '\n', stdout );
 	}
 
 	init::shutdown();

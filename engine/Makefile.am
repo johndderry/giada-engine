@@ -10,7 +10,7 @@ gdEngine_SOURCES = main.cpp
 
 libengine_a_SOURCES = channel.cpp config.cpp control.cpp interface.cpp \
 	kernelaudio.cpp kernelmidi.cpp midichannel.cpp mixer.cpp patch.cpp recorder.cpp \
-	samplechannel.cpp utility.cpp wave.cpp init.cpp
+	samplechannel.cpp utility.cpp wave.cpp init.cpp command.cpp
 
 # Check for environment: these vars are defined via AM_CONDITIONAL
 # inside configure.ac
@@ -74,5 +74,5 @@ gitclean:
 
 noinstHEADERS = patch.h channel.h config.h const.h kernel.h kernelaudio.h kernelmidi.h \
 	midichannel.h samplechannel.h utility.h mixer.h control.h recorder.h \
-	wave.h init.h interface.h
+	wave.h init.h interface.h command.h
 

@@ -836,7 +836,6 @@ int loadPatch(const char *fname, const char *fpath, bool isProject)
 	if (res != PATCH_OPEN_OK)
 		return res;
 
-
 	/* reset the system. False = don't update the gui right now */
 
 	resetToInitState();
